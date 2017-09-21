@@ -139,6 +139,7 @@ function draw(){
     randomFigureGenerator();
   }
   fillColor();
+  invisibleField();
   ctx.closePath();
   ctx.fill();
   requestAnimationFrame(draw);
@@ -253,7 +254,7 @@ document.body.onkeydown = function(e) {
           stateChecker==2 && !(matrixField[y][x+2]==1||matrixField[y+1][x+2]==1||matrixField[y+2][x+2]==1))rotate();
        }
     }
-    if(e.keyCode == SecretKeyCode){matrixField[0][0]=1;}
+    if(e.keyCode == SecretKeyCode){matrixField[3][0]=1;}
     if(e.keyCode == KEYCODE_SPACE){
        time=20;
     }
@@ -385,7 +386,7 @@ function randomFigureGenerator(){
 }
 function endGameChecker(){
   for(var i = 0;i<10;i++){
-    if(matrixField[0][i]==1)return true;
+    if(matrixField[3][i]==1)return true;
   }
   return false;
 }
@@ -419,6 +420,14 @@ function matrixSlide(u){
   for(var i = u;i>4;i--){
     for(var j=0;j<10;j++){
       matrixField[i][j]=matrixField[i-1][j];
+    }
+  }
+};
+function invisibleField(){
+  for(var i = 0;i<3;i++){
+    for(var j=0;j<10;j++){
+          ctx.fillStyle = "white";
+          ctx.fillRect((j)*32,(i)*32,32,32);
     }
   }
 };
