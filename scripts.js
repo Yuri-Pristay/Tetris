@@ -20,7 +20,7 @@ var matrixField=[[0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0]];
-var r=2;
+var r = 2;
 var scorer = 0;
 function drawLines() {
   for(var i = 1;i < 10;i++) {
